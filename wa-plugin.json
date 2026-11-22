@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 2,
+  "pluginId": "official.workspace-calendar",
+  "name": "Calendar",
+  "author": {
+    "name": "Batestinha",
+    "url": "https://github.com/Batestinha"
+  },
+  "description": "Publish the community event calendar used by Hub and Gallery.",
+  "kind": "managed_group",
+  "version": "1.0.0",
+  "coreApiRange": "^0.3.28",
+  "entrypoint": "dist/index.js",
+  "messageNamespace": "official.workspace-calendar",
+  "descriptionKey": "official.workspace-calendar.description",
+  "commands": [],
+  "workspaceCapabilities": [
+    {
+      "capabilityId": "calendar.feed.replace.v1",
+      "enabledSetting": "publishCalendar"
+    }
+  ],
+  "services": [
+    {
+      "serviceId": "official.workspace-calendar.projection.v1",
+      "methods": [
+        {
+          "name": "replace",
+          "access": "mutation",
+          "timeoutMs": 30000
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "pluginId": "official.integration-manager",
+      "versionRange": "^1.0.0"
+    }
+  ],
+  "requiredPermissions": [],
+  "requiredBotCapabilities": [],
+  "dangerousActions": [],
+  "backgroundJobs": [],
+  "cancellation": {
+    "workflows": []
+  },
+  "operatorConsole": {
+    "controls": [
+      {
+        "path": "publishCalendar",
+        "id": "plugin.official.workspace-calendar.publishCalendar",
+        "label": "Publish calendar",
+        "description": "Publish event changes from Community Events.",
+        "section": "Calendar",
+        "order": 10,
+        "schema": {
+          "type": "boolean"
+        },
+        "ui": {
+          "widget": "toggle",
+          "helpText": "Publish event changes from Community Events."
+        },
+        "dangerous": false,
+        "sensitivity": {
+          "sensitive": false,
+          "redact": "none"
+        },
+        "relatedCommandIds": [],
+        "relatedActionIds": []
+      }
+    ],
+    "pages": [],
+    "internalConfigPaths": [],
+    "configPaths": [
+      "publishCalendar"
+    ]
+  },
+  "help": {
+    "featureId": "workspace-calendar",
+    "titleKey": "official.workspace-calendar.title",
+    "summaryKey": "official.workspace-calendar.description",
+    "topics": [
+      {
+        "topicId": "workspace-calendar",
+        "titleKey": "official.workspace-calendar.title",
+        "summaryKey": "official.workspace-calendar.description",
+        "commands": [],
+        "instructionKeys": [
+          "official.workspace-calendar.description"
+        ]
+      }
+    ]
+  }
+}

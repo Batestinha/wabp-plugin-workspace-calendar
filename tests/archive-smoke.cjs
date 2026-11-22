@@ -1,0 +1,10 @@
+const assert = require('node:assert/strict');
+const path = require('node:path');
+const root = path.resolve(process.argv[2]);
+const manifest = require(path.join(root, 'wa-plugin.json'));
+const plugin = require(path.join(root, manifest.entrypoint)).default;
+assert.equal(plugin.manifest.pluginId, manifest.pluginId);
+assert.equal(plugin.manifest.name, manifest.name);
+assert.deepEqual(plugin.manifest.workspaceCapabilities, manifest.workspaceCapabilities);
+const pt = require(path.join(root, 'locales/pt-PT', manifest.pluginId + '.json'));
+for (const key of Object.keys(plugin.manifest.defaultMessages)) assert.ok(pt[key]?.trim(), key);
