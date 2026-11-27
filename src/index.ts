@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { memberSubscriptionState, registerMemberSubscription } from '@wabs/plugin-sdk/member-subscriptions';
 import type { ServicePlugin } from '@wabs/plugin-sdk/service-plugin';
 import { configSchema, manifest } from './manifest';
 
@@ -12,6 +13,14 @@ const projection = z.object({
 const calendar: ServicePlugin = {
   manifest,
   registerServices(context) {
+    const offer = manifest.memberSubscriptions![0]!;
+    const subscription = registerMemberSubscription(offer, async call => {
+      if (!call.actorIdentityId || !context.services || !configSchema.parse(await context.configFor(call.scopeId)).publishCalendar) return null;
+      return memberSubscriptionState.parse(await context.services.call({
+        serviceId: 'official.integration-manager.calendar-subscriptions.v1', method: 'read', scopeId: call.scopeId,
+        actorIdentityId: call.actorIdentityId, signal: call.signal, input: {}
+      }));
+    });
     return [{
       serviceId: 'official.workspace-calendar.projection.v1',
       methods: [{
@@ -27,7 +36,7 @@ const calendar: ServicePlugin = {
             scopeId: call.scopeId, signal: call.signal, input });
         }
       }]
-    }];
+    }, subscription];
   }
 };
 export default calendar;
