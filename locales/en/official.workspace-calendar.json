@@ -1,4 +1,5 @@
 {
   "official.workspace-calendar.title": "Calendar",
-  "official.workspace-calendar.description": "Publishes a community’s event schedule to the Workspace calendar feed used by Hub and Gallery. Administrators can enable or disable publication for each scope."
+  "official.workspace-calendar.description": "Publishes a community’s event schedule to the Workspace calendar feed used by Hub and Gallery. Administrators can enable or disable publication for each scope.",
+  "official.workspace-calendar.subscription.title": "Workspace Hub calendar feed"
 }

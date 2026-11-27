@@ -1,4 +1,5 @@
 {
   "official.workspace-calendar.title": "Calendar",
-  "official.workspace-calendar.description": "Publica o calendário de eventos de uma comunidade no Espaço de Trabalho para consulta no Hub e na Galeria. Os administradores podem ativar ou desativar a publicação em cada âmbito."
+  "official.workspace-calendar.description": "Publica o calendário de eventos de uma comunidade no Espaço de Trabalho para consulta no Hub e na Galeria. Os administradores podem ativar ou desativar a publicação em cada âmbito.",
+  "official.workspace-calendar.subscription.title": "Calendário do Hub do Workspace"
 }
