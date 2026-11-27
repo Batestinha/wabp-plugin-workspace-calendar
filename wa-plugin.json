@@ -8,8 +8,8 @@
   },
   "description": "Publishes a community’s event schedule to the Workspace calendar feed used by Hub and Gallery. Administrators can enable or disable publication for each scope.",
   "kind": "managed_group",
-  "version": "1.1.0",
-  "coreApiRange": "^0.3.32",
+  "version": "1.1.1",
+  "coreApiRange": "^0.3.34",
   "entrypoint": "dist/index.js",
   "messageNamespace": "official.workspace-calendar",
   "descriptionKey": "official.workspace-calendar.description",
@@ -120,5 +120,6 @@
       "serviceId": "official.workspace-calendar.subscriptions.v1",
       "labelKey": "official.workspace-calendar.subscription.title"
     }
-  ]
+  ],
+  "operationCatalogVersion": 1
 }

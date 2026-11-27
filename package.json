@@ -1,6 +1,6 @@
 {
   "name": "@wabs/plugin-workspace-calendar",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Publishes a community’s event schedule to the Workspace calendar feed used by Hub and Gallery. Administrators can enable or disable publication for each scope.",
   "license": "MIT",
   "private": true,
